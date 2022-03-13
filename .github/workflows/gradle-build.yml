@@ -22,3 +22,8 @@ jobs:
         uses: gradle/gradle-build-action@937999e9cc2425eddc7fd62d1053baf041147db7
         with:
           arguments: build
+      - name: Upload built jars
+        uses: actions/upload-artifact@v3
+        with:
+          name: jars
+          path: build/libs/*.jar
