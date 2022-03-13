@@ -28,9 +28,13 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - id: string
+        uses: ASzc/change-string-case-action@v1
+        with:
+          string: ${{ inputs.tag }}
       - name: Build and push Docker images
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
           context: .
           push: true
-          tags: ${{ inputs.tag }}
+          tags: ${{ steps.string.outputs.lowercase }}
