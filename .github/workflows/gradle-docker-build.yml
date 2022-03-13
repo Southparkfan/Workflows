@@ -2,10 +2,6 @@ name: Docker build for Gradle
 
 on:
   workflow_call:
-    inputs:
-      tag:
-        required: true
-        type: string
 
 jobs:
   build:
