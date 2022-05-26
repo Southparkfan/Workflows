@@ -16,7 +16,11 @@ jobs:
           node-version: 16
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
       - run: npm ci
-      - run: npm run lint
+      - run: |
+          if grep -q \"lint\" package.json
+          then
+            npm run lint
+          fi
       - uses: JS-DevTools/npm-publish@v1
         with:
           registry: "https://npm.pkg.github.com"
