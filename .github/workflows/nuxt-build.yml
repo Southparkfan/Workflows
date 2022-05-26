@@ -13,7 +13,7 @@ jobs:
           node-version: 16
       - run: npm ci
         env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm run generate
       - name: Upload built files
         uses: actions/upload-artifact@v3

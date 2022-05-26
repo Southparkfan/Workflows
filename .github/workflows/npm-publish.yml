@@ -16,7 +16,7 @@ jobs:
           node-version: 16
       - run: npm ci
         env:
-          GH_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: JS-DevTools/npm-publish@v1
         with:
           registry: "https://npm.pkg.github.com"
