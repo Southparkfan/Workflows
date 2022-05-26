@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -18,4 +18,8 @@ jobs:
           then
             npm run lint
           fi
-      - run: npm test
+      - run: |
+          if grep -q \"test\" package.json
+          then
+            npm test
+          fi
