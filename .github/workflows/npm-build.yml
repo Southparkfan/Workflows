@@ -12,4 +12,6 @@ jobs:
         with:
           node-version: 16
       - run: npm ci
+        env:
+          GH_PACKAGES_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npm test
