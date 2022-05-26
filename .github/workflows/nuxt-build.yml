@@ -15,6 +15,8 @@ jobs:
           node-version: 16
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
       - run: npm ci
+      - run: ls -la
+      - run: ls -la i18n
       - run: npm run generate
       - name: Upload built files
         uses: actions/upload-artifact@v3
