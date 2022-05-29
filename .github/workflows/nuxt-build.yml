@@ -16,14 +16,14 @@ jobs:
       - run: npm set //npm.pkg.github.com/:_authToken ${{ secrets.GITHUB_TOKEN }}
       - name: Install dependencies
         run: npm ci
+      - name: Generate Nuxt
+        run: npm run generate
       - name: Lint
         run: |
           if grep -q \"lint\" package.json
           then
             npm run lint
           fi
-      - name: Generate Nuxt
-        run: npm run generate
       - name: Upload built files
         uses: actions/upload-artifact@v3
         with:
